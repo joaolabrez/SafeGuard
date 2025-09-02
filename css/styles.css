@@ -1,25 +1,25 @@
 :root {
-    --laranja-primario: #FF8C00;
-    --cinza-escuro-logo: #333333;
-    --cinza-claro-fundo: #f8f9fa;
-    --cor-texto-principal: #444444;
-    --cor-texto-claro: #f1f1f1;
+    --laranja-primario: #FF8C00; /* Laranja vibrante da logo */
+    --azul-escuro-primario: #2C3E50; /* O azul escuro da camisa, ótimo para fundos */
+    --cinza-texto-principal: #444444; /* Um cinza um pouco mais suave para o texto geral */
+    --cinza-claro-fundo: #f8f9fa; /* Um cinza muito claro para fundos, para o body */
+    --cor-texto-claro: #f1f1f1; /* Para texto em fundos escuros */
     --fonte-principal: 'Poppins', sans-serif;
 }
 
 body {
     font-family: var(--fonte-principal);
     background-color: var(--cinza-claro-fundo);
-    color: var(--cor-texto-principal);
+    color: var(--cinza-texto-principal);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    color: var(--cinza-escuro-logo);
+    color: var(--azul-escuro-primario); /* Títulos agora em azul escuro */
 }
 
 .navbar {
-    background-color: var(--cinza-escuro-logo) !important;
+    background-color: var(--azul-escuro-primario) !important; /* Navbar em azul escuro */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
-    background-color: var(--cinza-escuro-logo);
+    background-color: var(--azul-escuro-primario); /* Rodapé em azul escuro */
     color: var(--cor-texto-claro);
     padding: 30px 0;
     margin-top: 60px;
@@ -94,32 +94,14 @@ h1, h2, h3, h4, h5, h6 {
 
 hr {
     opacity: 0.1;
-    border-top: 1px solid var(--cinza-escuro-logo);
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha mais discreta */
 }
 
 .nav-link {
     transition: color 0.3s ease;
 }
 
-.accordion-button:not(.collapsed) {
-    background-color: var(--laranja-primario);
-    color: white;
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
-}
-
-.accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
-
-.accordion-button {
-    color: var(--cinza-escuro-logo);
-}
-
-.accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
-    border-color: var(--laranja-primario);
-}
-
+/* --- Solução para o Rodapé (Sticky Footer) --- */
 html, body {
     height: 100%;
 }
@@ -131,4 +113,24 @@ body {
 
 .conteudo-principal {
     flex-grow: 1;
+}
+
+/* --- Personalização do Accordion (Página de Serviços) --- */
+.accordion-button:not(.collapsed) {
+    background-color: var(--laranja-primario);
+    color: white;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button {
+    color: var(--cinza-texto-principal); /* Texto do accordion fechado */
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
+    border-color: var(--laranja-primario);
 }
