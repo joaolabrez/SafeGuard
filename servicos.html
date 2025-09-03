@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Conheça os serviços da SafeGuard: elaboração de laudos técnicos (PPRA/PGR), treinamentos de equipes (CIPA, NR-35) e gestão de saúde ocupacional (PCMSO).">
+    <title>Serviços - SafeGuard</title>
 
-    <title>SafeGuard</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="index.html">SafeGuard</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
                 <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
-                <li class="nav-item"><a class="nav-link active" href="servicos.html">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
                 <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
             </ul>
         </div>
@@ -33,17 +36,16 @@
 
 <main class="conteudo-principal">
     <div class="container my-5">
-        <h1 class="text-center mb-5">O que Fazemos por Você?</h1>
+        <h1 class="text-center mb-5">O que Fazemos por Você</h1>
         <div class="accordion" id="accordionServicos">
-
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne">
                         Laudos Técnicos e PPRA/PGR
                     </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionServicos">
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionServicos">
                     <div class="accordion-body">
                         Elaboramos todos os laudos necessários para a conformidade da sua empresa com as Normas
                         Regulamentadoras (NRs), incluindo Laudo de Insalubridade, Periculosidade e o Programa de
@@ -51,7 +53,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -66,7 +67,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -81,17 +81,18 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </main>
 
 <footer class="footer text-center">
     <div class="container">
-        <span>&copy; 2025 SafeGuard Assessoria. </span>
+        <span>&copy; 2025 SafeGuard Assessoria.</span>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>

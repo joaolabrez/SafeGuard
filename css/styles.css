@@ -1,9 +1,9 @@
 :root {
-    --laranja-primario: #FF8C00; /* Laranja vibrante da logo */
-    --azul-escuro-primario: #2C3E50; /* O azul escuro da camisa, ótimo para fundos */
-    --cinza-texto-principal: #444444; /* Um cinza um pouco mais suave para o texto geral */
-    --cinza-claro-fundo: #f8f9fa; /* Um cinza muito claro para fundos, para o body */
-    --cor-texto-claro: #f1f1f1; /* Para texto em fundos escuros */
+    --laranja-primario: #FF8C00;
+    --azul-escuro-primario: #2C3E50;
+    --cinza-texto-principal: #444444;
+    --cinza-claro-fundo: #f8f9fa;
+    --cor-texto-claro: #f1f1f1;
     --fonte-principal: 'Poppins', sans-serif;
 }
 
@@ -11,15 +11,21 @@ body {
     font-family: var(--fonte-principal);
     background-color: var(--cinza-claro-fundo);
     color: var(--cinza-texto-principal);
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    color: var(--azul-escuro-primario); /* Títulos agora em azul escuro */
+    color: var(--azul-escuro-primario);
 }
 
 .navbar {
-    background-color: var(--azul-escuro-primario) !important; /* Navbar em azul escuro */
+    background-color: var(--azul-escuro-primario) !important;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -30,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-nav .nav-link {
     color: var(--cor-texto-claro);
+    transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link.active,
@@ -94,20 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 
 hr {
     opacity: 0.1;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-link {
-    transition: color 0.3s ease;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
+    border-top: 1px solid var(--cinza-escuro-logo);
 }
 
 .conteudo-principal {
@@ -125,7 +119,7 @@ body {
 }
 
 .accordion-button {
-    color: var(--cinza-texto-principal); /* Texto do accordion fechado */
+    color: var(--cinza-texto-principal);
 }
 
 .accordion-button:focus {
@@ -133,6 +127,6 @@ body {
     border-color: var(--laranja-primario);
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
+.animar-entrada {
+    opacity: 0;
 }
