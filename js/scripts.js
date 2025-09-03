@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const elementsToAnimate = document.querySelectorAll('.animar-entrada');
 
-    // Usando fromTo para definir o estado INICIAL e o estado FINAL da animação
     gsap.fromTo(elementsToAnimate,
         {
-            // 1. Estado INICIAL (de onde a animação começa)
             opacity: 0,
             y: 50
         },
         {
-            // 2. Estado FINAL (para onde a animação vai)
             opacity: 1,
             y: 0,
             duration: 0.8,
@@ -28,5 +25,23 @@ document.addEventListener('DOMContentLoaded', function() {
         if ((isHomePage && linkPath === 'index.html') || (!isHomePage && location.includes(linkPath) && linkPath !== 'index.html')) {
             link.classList.add('active');
         }
+    });
+});
+
+const btnTopo = document.getElementById("voltarAoTopoBtn");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btnTopo.style.display = "flex";
+    } else {
+        btnTopo.style.display = "none";
+    }
+};
+
+btnTopo.addEventListener('click', function(e) {
+    e.preventDefault(); //
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 });
