@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
-    background-color: var(--azul-escuro-primario); /* Rodapé em azul escuro */
+    background-color: var(--azul-escuro-primario);
     color: var(--cor-texto-claro);
     padding: 30px 0;
     margin-top: 60px;
@@ -94,14 +94,13 @@ h1, h2, h3, h4, h5, h6 {
 
 hr {
     opacity: 0.1;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha mais discreta */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-link {
     transition: color 0.3s ease;
 }
 
-/* --- Solução para o Rodapé (Sticky Footer) --- */
 html, body {
     height: 100%;
 }
@@ -115,7 +114,6 @@ body {
     flex-grow: 1;
 }
 
-/* --- Personalização do Accordion (Página de Serviços) --- */
 .accordion-button:not(.collapsed) {
     background-color: var(--laranja-primario);
     color: white;
@@ -133,4 +131,8 @@ body {
 .accordion-button:focus {
     box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
     border-color: var(--laranja-primario);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
 }
