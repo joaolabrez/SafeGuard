@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const elementsToAnimate = document.querySelectorAll('.animar-entrada');
 
     gsap.fromTo(elementsToAnimate,
@@ -30,18 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const btnTopo = document.getElementById("voltarAoTopoBtn");
 
-window.onscroll = function() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        btnTopo.style.display = "flex";
-    } else {
-        btnTopo.style.display = "none";
-    }
-};
+if (btnTopo) {
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            btnTopo.classList.add("visivel");
+        } else {
+            btnTopo.classList.remove("visivel");
+        }
+    };
 
-btnTopo.addEventListener('click', function(e) {
-    e.preventDefault(); //
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    btnTopo.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({top: 0, behavior: 'smooth'});
     });
-});
+}
