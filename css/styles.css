@@ -195,3 +195,17 @@ hr {
 .text-white-50 {
     color: rgba(255, 255, 255, 0.5) !important;
 }
+
+.footer-contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.footer-contact-info strong {
+    color: white;
+}
+
+.footer-contact-info i {
+    color: rgba(255, 255, 255, 0.5);
+}
