@@ -164,7 +164,7 @@ hr {
 .footer {
     background-color: var(--azul-escuro-primario);
     color: var(--cor-texto-claro);
-    padding: 50px 0 0 0; /* Aumenta o espaçamento superior */
+    padding: 50px 0 0 0;
     margin-top: 60px;
 }
 
@@ -208,4 +208,32 @@ hr {
 
 .footer-contact-info i {
     color: rgba(255, 255, 255, 0.5);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--laranja-primario);
+    margin-bottom: 1rem;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--laranja-primario);
+    transition: width 0.4s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 60%;
 }
