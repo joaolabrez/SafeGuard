@@ -13,6 +13,7 @@ body {
     color: var(--cinza-texto-principal);
     display: flex;
     flex-direction: column;
+    line-height: 1.7;
 }
 
 html, body {
