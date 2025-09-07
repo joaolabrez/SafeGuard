@@ -1,9 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const elementsToAnimate = document.querySelectorAll('.animar-entrada');
     gsap.fromTo(elementsToAnimate,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out" }
+        {opacity: 0, y: 50},
+        {opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out"}
     );
 
     const location = window.location.pathname;
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     hoverOffset: 4
                 }]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: {responsive: true, maintainAspectRatio: false}
         });
     }
 
@@ -67,13 +66,13 @@ document.addEventListener('DOMContentLoaded', function () {
             data: {
                 labels: ['Tempo de Ciclo', 'Desperdício', 'Produtividade'],
                 datasets: [
-                    { label: 'Antes', data: [100, 80, 60], backgroundColor: 'rgba(108, 117, 125, 0.5)' },
-                    { label: 'Depois', data: [65, 25, 95], backgroundColor: 'rgba(13, 110, 253, 0.7)' }
+                    {label: 'Antes', data: [100, 80, 60], backgroundColor: 'rgba(108, 117, 125, 0.5)'},
+                    {label: 'Depois', data: [65, 25, 95], backgroundColor: 'rgba(13, 110, 253, 0.7)'}
                 ]
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
-                scales: { y: { beginAtZero: true } }
+                scales: {y: {beginAtZero: true}}
             }
         });
     }
@@ -91,6 +90,6 @@ if (btnTopo) {
 
     btnTopo.addEventListener('click', function (e) {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({top: 0, behavior: 'smooth'});
     });
 }
