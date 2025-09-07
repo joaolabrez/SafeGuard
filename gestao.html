@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="Conheça os serviços da SafeGuard: elaboração de laudos técnicos (PPRA/PGR), treinamentos de equipes (CIPA, NR-35) e gestão de saúde ocupacional (PCMSO).">
-    <title>Serviços - SafeGuard</title>
+    <meta name="description" content="Conheça o Programa de Gestão de Eficiência da SafeGuard, focado em otimização de processos e eliminação de desperdícios com princípios Lean.">
+    <title>Programa de Gestão de Eficiência - SafeGuard</title>
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,9 +14,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
+<!-- CABEÇALHO COM A ESTRUTURA CORRETA -->
 <nav class="navbar navbar-expand-lg navbar-dark animar-entrada">
     <div class="container">
         <a class="navbar-brand" href="index.html">SafeGuard</a>
@@ -33,44 +34,52 @@
 </nav>
 
 <main class="conteudo-principal">
-    <div class="container my-5">
-        <div class="text-center mb-5 animar-entrada">
-            <h1 class="display-5 fw-bold">Nossos Programas de Consultoria</h1>
-            <p class="lead text-muted">Explore em detalhes como podemos transformar a cultura da sua empresa.</p>
+    <!-- Seção Interativa: Gestão de Eficiência -->
+    <section id="gestao-eficiencia" class="container my-5 py-5">
+         <div class="text-center mb-5 animar-entrada">
+            <h1 class="display-5 fw-bold">Programa de Gestão de Eficiência</h1>
+            <p class="lead text-muted">Aplicando os princípios Lean para otimizar fluxos e eliminar desperdícios.</p>
         </div>
 
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-5 col-md-6 animar-entrada">
-                <div class="card text-center shadow-lg h-100 p-3">
-                    <div class="card-body d-flex flex-column">
-                        <i class="bi bi-shield-check card-icon"></i>
-                        <h3 class="card-title h4">Programa de Segurança Comportamental</h3>
-                        <p class="card-text text-muted mt-2">Focamos no fator humano para construir uma cultura de
-                            segurança robusta e proativa.</p>
-                        <div class="mt-auto pt-3">
-                            <a href="seguranca.html" class="btn btn-primary">Ver Detalhes do Programa</a>
+        <div class="row g-4 align-items-center">
+             <!-- Coluna da Esquerda: Gráfico -->
+            <div class="col-lg-6 animar-entrada">
+                 <div class="card shadow-sm">
+                     <div class="card-body">
+                         <h5 class="card-title text-center mb-3">Resultados Típicos de Otimização</h5>
+                        <div class="chart-container">
+                            <canvas id="efficiencyChart"></canvas>
                         </div>
-                    </div>
-                </div>
+                     </div>
+                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 animar-entrada">
-                <div class="card text-center shadow-lg h-100 p-3">
-                    <div class="card-body d-flex flex-column">
-                        <i class="bi bi-graph-up-arrow card-icon"></i>
-                        <h3 class="card-title h4">Programa de Gestão de Eficiência</h3>
-                        <p class="card-text text-muted mt-2">Aplicamos os princípios Lean para otimizar fluxos, eliminar
-                            desperdícios e aumentar a produtividade.</p>
-                        <div class="mt-auto pt-3">
-                            <a href="gestao.html" class="btn btn-primary">Ver Detalhes do Programa</a>
+
+            <!-- Coluna da Direita: Passos do Processo -->
+            <div class="col-lg-6 animar-entrada">
+                 <div class="card shadow-sm">
+                     <div class="card-body p-4">
+                        <h5 class="card-title text-center">Nosso Método Cíclico</h5>
+                        <p class="text-center text-muted small mb-3">Clique em cada passo para ver os detalhes.</p>
+                        <!-- Passos clicáveis do processo -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                            <button id="step-planejar" class="btn btn-outline-primary process-step">1. Planejar</button>
+                            <button id="step-executar" class="btn btn-outline-primary process-step">2. Executar</button>
+                            <button id="step-verificar" class="btn btn-outline-primary process-step">3. Verificar</button>
+                            <button id="step-agir" class="btn btn-outline-primary process-step">4. Agir</button>
                         </div>
-                    </div>
-                </div>
+                        <!-- Conteúdo dinâmico do processo -->
+                        <div id="process-content" class="p-3 bg-light border rounded text-center">
+                            <!-- O JavaScript vai inserir o conteúdo aqui -->
+                        </div>
+                     </div>
+                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 <a href="#" id="voltarAoTopoBtn" class="btn btn-primary"><i class="bi bi-arrow-up-short"></i></a>
 
+<!-- RODAPÉ COM A ESTRUTURA CORRETA -->
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -79,7 +88,6 @@
                 <p class="text-white-50">Cultura de Segurança que Protege Pessoas e Impulsiona Resultados. Ajudamos sua
                     empresa a transformar a segurança de uma obrigação em um valor compartilhado.</p>
             </div>
-
             <div class="col-md-3 offset-md-1 mb-4">
                 <h5 class="footer-title">Navegação</h5>
                 <ul class="list-unstyled footer-links">
@@ -89,27 +97,22 @@
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>
-
             <div class="col-md-3 mb-4">
                 <h5 class="footer-title">Contato</h5>
                 <ul class="list-unstyled text-white-50 footer-contact-info">
                     <li><i class="bi bi-envelope-fill me-2"></i>contato@safeguard.com.br</li>
                     <li><i class="bi bi-telephone-fill me-2"></i>(51) 99121-4697</li>
                     <li><i class="bi bi-geo-alt-fill me-2"></i>Montenegro, RS</li>
-
-                    <li class="mt-4">
-                        <strong>Horário de atendimento</strong>
-                    </li>
-                    <li>
-                        Segunda a sexta das 8h às 18h.
-                    </li>
+                    <li class="mt-4"><strong>Horário de atendimento</strong></li>
+                    <li>Segunda a sexta das 8h às 18h.</li>
                 </ul>
             </div>
-            <hr class="footer-hr">
-            <div class="text-center text-white-50 pt-3">
-                <p>&copy; 2025 SafeGuard Assessoria.</p>
-            </div>
         </div>
+        <hr class="footer-hr">
+        <div class="text-center text-white-50 pt-3">
+            <p>&copy; 2025 SafeGuard Assessoria.</p>
+        </div>
+    </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
