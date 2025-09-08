@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     const elementsToAnimate = document.querySelectorAll('.animar-entrada');
-    gsap.fromTo(elementsToAnimate,
-        {opacity: 0, y: 50},
-        {opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out"}
-    );
+    if (elementsToAnimate.length > 0 && typeof gsap !== 'undefined') {
+        gsap.fromTo(elementsToAnimate,
+            {opacity: 0, y: 50},
+            {opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out"}
+        );
+    }
 
     const location = window.location.pathname;
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
@@ -16,10 +18,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    const btnTopo = document.getElementById("voltarAoTopoBtn");
+    if (btnTopo) {
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                btnTopo.classList.add("visivel");
+            } else {
+                btnTopo.classList.remove("visivel");
+            }
+        };
+        btnTopo.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    }
+
     const acidentesCanvas = document.getElementById('acidentesChart');
     if (acidentesCanvas) {
         const dataAntes = {values: [8, 10, 7, 9, 11, 8], label: 'Nº de Acidentes (Sem DDS)'};
         const dataDepois = {values: [3, 2, 2, 1, 3, 1], label: 'Nº de Acidentes (Com DDS)'};
+        const laranjaPrimario = getComputedStyle(document.documentElement).getPropertyValue('--laranja-primario').trim();
 
         const acidentesCtx = acidentesCanvas.getContext('2d');
         let acidentesChart = new Chart(acidentesCtx, {
@@ -29,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 datasets: [{
                     label: dataDepois.label,
                     data: dataDepois.values,
-                    backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--laranja-primario').trim(),
+                    backgroundColor: laranjaPrimario,
                     borderRadius: 5
                 }]
             },
@@ -42,19 +60,14 @@ document.addEventListener('DOMContentLoaded', function () {
         function updateChart(data, buttonToActivate) {
             acidentesChart.data.datasets[0].data = data.values;
             acidentesChart.data.datasets[0].label = data.label;
-            acidentesChart.data.datasets[0].backgroundColor = (data.label.includes('Sem')) ? '#6c757d' : getComputedStyle(document.documentElement).getPropertyValue('--laranja-primario').trim();
+            acidentesChart.data.datasets[0].backgroundColor = (data.label.includes('Sem')) ? '#6c757d' : laranjaPrimario;
             acidentesChart.update();
-
-            if (btnAntes && btnDepois) {
-                [btnAntes, btnDepois].forEach(btn => btn.classList.remove('active'));
-                buttonToActivate.classList.add('active');
-            }
+            [btnAntes, btnDepois].forEach(btn => btn.classList.remove('active'));
+            buttonToActivate.classList.add('active');
         }
 
-        if (btnAntes && btnDepois) {
-            btnAntes.addEventListener('click', () => updateChart(dataAntes, btnAntes));
-            btnDepois.addEventListener('click', () => updateChart(dataDepois, btnDepois));
-        }
+        btnAntes.addEventListener('click', () => updateChart(dataAntes, btnAntes));
+        btnDepois.addEventListener('click', () => updateChart(dataDepois, btnDepois));
     }
 
     const engajamentoCanvas = document.getElementById('engajamentoChart');
@@ -71,122 +84,88 @@ document.addEventListener('DOMContentLoaded', function () {
                         '#6c757d'
                     ],
                     borderWidth: 4,
-                    borderColor: '#ffffff'
+                    borderColor: getComputedStyle(document.documentElement).getPropertyValue('--cinza-claro-fundo').trim()
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {legend: {position: 'bottom'}},
-                cutout: '60%'
+                cutout: '70%'
             }
         });
     }
 
-    const stepItems = document.querySelectorAll('.step-item');
-    const detailsContent = document.getElementById('step-details');
-    if (stepItems.length > 0 && detailsContent) {
-        const stepDetailsData = {
+    const stepButtonsContainer = document.getElementById('epi-step-buttons');
+    const contentDiv = document.getElementById('epi-step-content');
+
+    if (stepButtonsContainer && contentDiv) {
+        const stepData = {
             1: {
-                title: '1. Observar com Atenção',
-                description: 'Esteja consciente do seu entorno e preste atenção a potenciais perigos. Uma observação atenta é o primeiro passo para a prevenção.'
+                icon: 'bi-search-heart',
+                title: '1. Análise de Riscos',
+                description: 'Tudo começa aqui. Esta é a fase de diagnóstico, onde identificamos e avaliamos todos os riscos presentes no ambiente de trabalho para cada função específica. A partir do Programa de Gerenciamento de Riscos (PGR), determinamos quais perigos (químicos, físicos, biológicos, etc.) precisam ser neutralizados pelo uso de EPIs.'
             },
             2: {
-                title: '2. Abordar com Respeito',
-                description: 'Se identificar um risco, aproxime-se da pessoa envolvida de maneira calma e privada, demonstrando preocupação genuína.'
+                icon: 'bi-check2-circle',
+                title: '2. Seleção do EPI Adequado',
+                description: 'Com os riscos mapeados, selecionamos o equipamento ideal. Isso envolve escolher o EPI que oferece o nível de proteção necessário, possui Certificado de Aprovação (CA) válido e é o mais confortável e ergonômico possível para o trabalhador, a fim de garantir sua aceitação e uso contínuo.'
             },
             3: {
-                title: '3. Dialogar para Entender',
-                description: 'Converse para entender a situação. Use perguntas abertas para criar um diálogo, não dar uma ordem.'
+                icon: 'bi-cart-check',
+                title: '3. Compra e Aquisição',
+                description: 'A fase de compra deve priorizar a qualidade e a conformidade. É essencial adquirir EPIs de fornecedores confiáveis, verificar a validade do CA no momento da compra e garantir que os produtos atendam a todas as especificações técnicas definidas na etapa de seleção. A gestão de estoque também começa aqui.'
             },
             4: {
-                title: '4. Resolver em Conjunto',
-                description: 'Trabalhem juntos para encontrar uma solução segura, seja parando a tarefa, corrigindo a condição ou buscando ajuda.'
-            }
-        };
-
-        function updateStepDetails(step) {
-            const data = stepDetailsData[step];
-            detailsContent.innerHTML = `<h4 class="fw-bold">${data.title}</h4><p class="mb-0">${data.description}</p>`;
-        }
-
-        stepItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const step = item.dataset.step;
-                stepItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-                updateStepDetails(step);
-            });
-        });
-
-        updateStepDetails(1);
-    }
-
-    const epiStepItems = document.querySelectorAll('.epi-step-item');
-    const epiDetailsContent = document.getElementById('epi-step-content');
-    if (epiStepItems.length > 0 && epiDetailsContent) {
-        const epiStepData = {
-            1: {
-                title: '1. Identificação de Riscos',
-                description: 'Analisar o ambiente e as atividades para identificar os riscos (físicos, químicos, biológicos, etc.) e documentá-los no PGR.'
-            },
-            2: {
-                title: '2. Seleção do EPI',
-                description: 'Com base nos riscos, escolher o EPI adequado, sempre verificando se possui Certificado de Aprovação (CA) válido.'
-            },
-            3: {
-                title: '3. Compra e Recebimento',
-                description: 'Adquirir os EPIs de fornecedores qualificados, conferir os produtos e controlar o estoque para garantir a disponibilidade.'
-            },
-            4: {
-                title: '4. Distribuição e Treinamento',
-                description: 'Registrar a entrega do EPI e treinar o trabalhador sobre a importância, o uso correto e a conservação do equipamento.'
+                icon: 'bi-box-arrow-in-down',
+                title: '4. Entrega e Treinamento',
+                description: 'O EPI só é eficaz se o trabalhador souber usá-lo. Nesta etapa, o equipamento é entregue formalmente ao colaborador mediante registro em ficha de EPI. O mais importante é o treinamento, que deve cobrir o uso correto, a colocação, a retirada, a higienização e as limitações do equipamento.'
             },
             5: {
-                title: '5. Uso e Fiscalização',
-                description: 'Garantir e fiscalizar o uso correto do EPI durante toda a jornada de trabalho, reforçando a cultura de segurança.'
+                icon: 'bi-person-workspace',
+                title: '5. Uso Efetivo',
+                description: 'Esta é a fase prática, onde o EPI cumpre sua função no dia a dia. A responsabilidade é mútua: o empregado deve usar o EPI conforme treinado, e o empregador deve fiscalizar e garantir que as regras de uso estão sendo seguidas por toda a equipe, de forma consistente.'
             },
             6: {
-                title: '6. Higienização e Manutenção',
-                description: 'Orientar sobre a limpeza e manutenção dos EPIs reutilizáveis para garantir sua eficácia e durabilidade.'
+                icon: 'bi-wrench-adjustable-circle',
+                title: '6. Manutenção e Guarda',
+                description: 'A durabilidade e eficácia do EPI dependem de seu cuidado. O trabalhador é responsável por guardar e conservar o equipamento, realizando a higienização conforme as instruções. A empresa deve fornecer os meios para a limpeza e realizar inspeções periódicas para identificar avarias ou desgastes.'
             },
             7: {
+                icon: 'bi-trash3',
                 title: '7. Descarte',
-                description: 'Realizar o descarte correto dos EPIs danificados ou vencidos, seguindo normas ambientais.'
+                description: 'Quando o EPI atinge o fim de sua vida útil, está danificado ou com o CA vencido, ele deve ser descartado. O descarte correto é fundamental, especialmente para EPIs contaminados com produtos químicos ou biológicos, que podem exigir procedimentos específicos para não gerar riscos ambientais ou de saúde.'
             }
         };
 
-        function updateEpiStepDetails(step) {
-            const data = epiStepData[step];
+        function updateContent(step) {
+            const data = stepData[step];
             if (data) {
-                epiDetailsContent.innerHTML = `<h4 class="fw-bold">${data.title}</h4><p class="mb-0">${data.description}</p>`;
+                contentDiv.innerHTML = `
+                    <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start">
+                        <i class="bi ${data.icon} display-3 text-laranja-primario me-md-4 mb-3 mb-md-0"></i>
+                        <div>
+                            <h3 class="fw-bold">${data.title}</h3>
+                            <p class="lead-sm mb-0">${data.description}</p>
+                        </div>
+                    </div>
+                `;
             }
         }
 
-        epiStepItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const step = item.dataset.step;
-                epiStepItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-                updateEpiStepDetails(step);
-            });
+        stepButtonsContainer.addEventListener('click', function (e) {
+            if (e.target.matches('.epi-step-item')) {
+                const step = e.target.dataset.step;
+
+                stepButtonsContainer.querySelectorAll('.epi-step-item').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                e.target.classList.add('active');
+                updateContent(step);
+            }
         });
 
-        updateEpiStepDetails(1);
+        updateContent(1);
     }
 });
-
-const btnTopo = document.getElementById("voltarAoTopoBtn");
-if (btnTopo) {
-    window.onscroll = function () {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            btnTopo.classList.add("visivel");
-        } else {
-            btnTopo.classList.remove("visivel");
-        }
-    };
-    btnTopo.addEventListener('click', function (e) {
-        e.preventDefault();
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-}
