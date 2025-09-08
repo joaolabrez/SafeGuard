@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="Detalhes sobre o Programa de Segurança Comportamental da SafeGuard, incluindo DDS, Cuidado Ativo e Gestão de EPIs.">
-    <title>Programa de Segurança Comportamental - SafeGuard</title>
+    <title>Segurança Comportamental - SafeGuard</title>
     <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -40,75 +36,240 @@
 </nav>
 
 <main class="conteudo-principal">
-    <!-- Seção Interativa: Segurança Comportamental -->
-    <section id="seguranca-comportamental" class="container my-5 py-5">
-        <div class="text-center mb-5 animar-entrada">
-            <h1 class="display-5 fw-bold">Programa de Segurança Comportamental</h1>
-            <p class="lead text-muted">Construindo uma cultura onde o cuidado é um valor compartilhado por todos.</p>
-        </div>
 
-        <div class="row g-4 align-items-center">
-            <!-- Coluna da Esquerda: Abas com Conteúdo -->
-            <div class="col-lg-6 animar-entrada">
-                <div class="card shadow-sm">
-                    <div class="card-body p-4">
-                        <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-dds"
-                                        type="button" role="tab">DDS
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-cuidado"
-                                        type="button" role="tab">Cuidado Ativo
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-epi" type="button"
-                                        role="tab">Gestão de EPI
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="tab-content p-3 border rounded" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-dds" role="tabpanel">
-                                <h5 class="fw-bold">Diálogo Diário de Segurança</h5>
-                                <p>Promovemos DDS dinâmicos e eficazes que vão além da rotina, focando em temas
-                                    relevantes para criar um momento valioso de conscientização.</p>
-                            </div>
-                            <div class="tab-pane fade" id="pills-cuidado" role="tabpanel">
-                                <h5 class="fw-bold">Cuidado Ativo Genuíno</h5>
-                                <p>Ensinamos as equipes a observar, abordar e cuidar uns dos outros de forma
-                                    construtiva, fortalecendo a responsabilidade mútua.</p>
-                            </div>
-                            <div class="tab-pane fade" id="pills-epi" role="tabpanel">
-                                <h5 class="fw-bold">Gestão Inteligente de EPIs</h5>
-                                <p>Implementamos sistemas para garantir o uso correto e a conservação dos Equipamentos
-                                    de Proteção Individual, transformando obrigação em hábito.</p>
-                            </div>
+    <section id="hero" class="hero-gradient-bg text-white text-center py-5">
+        <div class="container animar-entrada">
+            <h1 class="display-4 fw-bold">Segurança Comportamental</h1>
+            <p class="lead col-lg-8 mx-auto">Transforme a cultura de segurança em sua empresa com nossas
+                metodologias</p>
+            <a href="#resultados" class="btn btn-primary btn-lg mt-3">Ver Impacto em Números</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">O que é o Diálogo Diário de Segurança?</h2>
+                <p class="lead text-muted">A conversa que alinha a equipe, previne riscos e fortalece a cultura de
+                    cuidado.</p>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-md-4 animar-entrada">
+                    <div class="card h-100 p-3">
+                        <div class="card-body">
+                            <i class="bi bi-bullseye card-icon"></i>
+                            <h3 class="h5 card-title fw-bold">Prevenção Focada</h3>
+                            <p class="card-text">Aborda os riscos específicos do dia, tornando a segurança relevante e
+                                prática para todos.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Coluna da Direita: Gráfico -->
-            <div class="col-lg-6 animar-entrada">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-center mb-3">Impacto Esperado do Programa</h5>
-                        <div class="chart-container">
-                            <canvas id="safetyChart"></canvas>
+                <div class="col-md-4 animar-entrada">
+                    <div class="card h-100 p-3">
+                        <div class="card-body">
+                            <i class="bi bi-people-fill card-icon"></i>
+                            <h3 class="h5 card-title fw-bold">Engajamento Contínuo</h3>
+                            <p class="card-text">Promove a participação ativa dos colaboradores, que compartilham
+                                percepções e soluções.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animar-entrada">
+                    <div class="card h-100 p-3">
+                        <div class="card-body">
+                            <i class="bi bi-heart-pulse-fill card-icon"></i>
+                            <h3 class="h5 card-title fw-bold">Cultura de Cuidado</h3>
+                            <p class="card-text">Reforça diariamente o compromisso da empresa e dos funcionários com a
+                                segurança.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="resultados" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Resultados e Impacto em Números</h2>
+                <p class="lead text-muted">Visualize como a segurança melhora e o engajamento cresce.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 animar-entrada">
+                    <div class="card p-3">
+                        <div class="card-body">
+                            <h3 class="h5 card-title text-center fw-bold">Redução de Acidentes: Antes vs. Com DDS</h3>
+                            <div class="text-center my-3">
+                                <div class="btn-group shadow-sm" role="group">
+                                    <button type="button" class="btn btn-outline-secondary filter-btn"
+                                            id="btnAcidentesAntes">Antes
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary filter-btn active"
+                                            id="btnAcidentesDepois">Com DDS
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="acidentesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 animar-entrada">
+                    <div class="card p-3">
+                        <div class="card-body">
+                            <h3 class="h5 card-title text-center fw-bold">Aumento do Engajamento em Segurança</h3>
+                            <div class="chart-container">
+                                <canvas id="engajamentoChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilares" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Os 3 Pilares do Cuidado Ativo</h2>
+                <p class="lead text-muted">Atitudes fundamentais que criam um ambiente de trabalho mais seguro.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 animar-entrada">
+                    <div class="card h-100 p-3">
+                        <div class="card-body">
+                            <h3 class="h5 card-title fw-bold">1. Cuidar de Si Mesmo</h3>
+                            <p class="card-text">Reconhecer seus próprios limites, estado físico e emocional. Estar
+                                atento aos riscos da sua tarefa e garantir que você tem as condições e ferramentas
+                                adequadas para executá-la com segurança.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animar-entrada">
+                    <div class="card h-100 p-3">
+                        <div class="card-body">
+                            <h3 class="h5 card-title fw-bold">2. Cuidar do Outro</h3>
+                            <p class="card-text">Observar o ambiente e as atitudes dos colegas. Ao identificar um risco
+                                ou um comportamento inseguro, abordar a pessoa de forma respeitosa e construtiva,
+                                oferecendo ajuda e buscando uma solução conjunta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animar-entrada">
+                    <div class="card h-100 p-3">
+                        <div class="card-body">
+                            <h3 class="h5 card-title fw-bold">3. Deixar-se Cuidar</h3>
+                            <p class="card-text">Estar aberto a receber feedback sobre sua própria segurança. Entender
+                                que um colega que o aborda está genuinamente preocupado com seu bem-estar e agradecer
+                                pela atitude de cuidado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gestao-epi" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Guia Essencial de Gestão de EPI</h2>
+                <p class="lead text-muted col-lg-8 mx-auto">O processo de administrar todo o ciclo de vida dos
+                    Equipamentos de Proteção Individual.</p>
+            </div>
+            <div class="text-center mb-4 animar-entrada">
+                <div class="btn-toolbar justify-content-center" role="toolbar">
+                    <div class="btn-group flex-wrap shadow-sm" role="group">
+                        <button type="button" class="btn btn-outline-primary epi-step-item active" data-step="1">1.
+                            Riscos
+                        </button>
+                        <button type="button" class="btn btn-outline-primary epi-step-item" data-step="2">2. Seleção
+                        </button>
+                        <button type="button" class="btn btn-outline-primary epi-step-item" data-step="3">3. Compra
+                        </button>
+                        <button type="button" class="btn btn-outline-primary epi-step-item" data-step="4">4. Entrega
+                        </button>
+                        <button type="button" class="btn btn-outline-primary epi-step-item" data-step="5">5. Uso
+                        </button>
+                        <button type="button" class="btn btn-outline-primary epi-step-item" data-step="6">6.
+                            Manutenção
+                        </button>
+                        <button type="button" class="btn btn-outline-primary epi-step-item" data-step="7">7. Descarte
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="epi-step-content" class="bg-light p-4 rounded shadow-inner animar-entrada">
+            </div>
+        </div>
+    </section>
+
+    <section id="pontos-chave" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Pontos-Chave para o Sucesso</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 animar-entrada">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="card-title h5 fw-bold">Responsabilidades</h3>
+                            <p class="fw-semibold mt-3">EMPREGADOR:</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Fornecer EPI adequado e com
+                                    CA válido.
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Exigir e fiscalizar o uso.
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Treinar o trabalhador e
+                                    registrar a entrega.
+                                </li>
+                            </ul>
+                            <p class="fw-semibold mt-3">EMPREGADO:</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Usar o EPI apenas para a
+                                    finalidade correta.
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Guardar e conservar o
+                                    equipamento.
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Comunicar qualquer problema
+                                    que o torne impróprio.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animar-entrada">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="card-title h5 fw-bold">Desafios Comuns</h3>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><strong class="d-block">Resistência ao Uso:</strong> Vencida com
+                                    treinamento e conscientização contínua.
+                                </li>
+                                <li class="mb-2"><strong class="d-block">Seleção Inadequada:</strong> Evitada com
+                                    análise técnica criteriosa dos riscos.
+                                </li>
+                                <li class="mb-2"><strong class="d-block">Falta de Controle:</strong> Resolvida com
+                                    sistemas para registrar entregas e validades.
+                                </li>
+                                <li class="mb-2"><strong class="d-block">Manutenção Deficiente:</strong> Corrigida com
+                                    procedimentos claros de higienização.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
+
 <a href="#" id="voltarAoTopoBtn" class="btn btn-primary"><i class="bi bi-arrow-up-short"></i></a>
 
-<!-- RODAPÉ COM A ESTRUTURA CORRETA -->
 <footer class="footer">
-    <!-- A DIV CONTAINER É ESSENCIAL AQUI -->
     <div class="container">
         <div class="row">
             <div class="col-md-5 mb-4">
@@ -116,6 +277,7 @@
                 <p class="text-white-50">Cultura de Segurança que Protege Pessoas e Impulsiona Resultados. Ajudamos sua
                     empresa a transformar a segurança de uma obrigação em um valor compartilhado.</p>
             </div>
+
             <div class="col-md-3 offset-md-1 mb-4">
                 <h5 class="footer-title">Navegação</h5>
                 <ul class="list-unstyled footer-links">
@@ -125,26 +287,32 @@
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>
+
             <div class="col-md-3 mb-4">
                 <h5 class="footer-title">Contato</h5>
                 <ul class="list-unstyled text-white-50 footer-contact-info">
                     <li><i class="bi bi-envelope-fill me-2"></i>contato@safeguard.com.br</li>
                     <li><i class="bi bi-telephone-fill me-2"></i>(51) 99121-4697</li>
                     <li><i class="bi bi-geo-alt-fill me-2"></i>Montenegro, RS</li>
-                    <li class="mt-4"><strong>Horário de atendimento</strong></li>
-                    <li>Segunda a sexta das 8h às 18h.</li>
+
+                    <li class="mt-4">
+                        <strong>Horário de atendimento</strong>
+                    </li>
+                    <li>
+                        Segunda a sexta das 8h às 18h.
+                    </li>
                 </ul>
             </div>
+            <hr class="footer-hr">
+            <div class="text-center text-white-50 pt-3">
+                <p>&copy; 2025 SafeGuard Assessoria.</p>
+            </div>
         </div>
-        <hr class="footer-hr">
-        <div class="text-center text-white-50 pt-3">
-            <p>&copy; 2025 SafeGuard Assessoria.</p>
-        </div>
-    </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="js/scripts.js"></script>
+
 </body>
 </html>
