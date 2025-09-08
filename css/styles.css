@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
+    box-shadow: none;
     border-color: var(--laranja-primario);
 }
 
@@ -228,5 +228,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero-epi .display-4 {
+    color: var(--laranja-primario) !important;
+}
+
+#hero .display-4 {
     color: var(--laranja-primario) !important;
 }
