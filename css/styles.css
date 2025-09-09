@@ -234,3 +234,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero .display-4 {
     color: var(--laranja-primario) !important;
 }
+
+#hero-eficiencia .display-4 {
+    color: var(--laranja-primario) !important;
+}

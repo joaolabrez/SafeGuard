@@ -57,17 +57,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const btnAntes = document.getElementById('btnAcidentesAntes');
         const btnDepois = document.getElementById('btnAcidentesDepois');
 
-        function updateChart(data, buttonToActivate) {
-            acidentesChart.data.datasets[0].data = data.values;
-            acidentesChart.data.datasets[0].label = data.label;
-            acidentesChart.data.datasets[0].backgroundColor = (data.label.includes('Sem')) ? '#6c757d' : laranjaPrimario;
-            acidentesChart.update();
-            [btnAntes, btnDepois].forEach(btn => btn.classList.remove('active'));
-            buttonToActivate.classList.add('active');
-        }
+        if (btnAntes && btnDepois) {
+            function updateChart(data, buttonToActivate) {
+                acidentesChart.data.datasets[0].data = data.values;
+                acidentesChart.data.datasets[0].label = data.label;
+                acidentesChart.data.datasets[0].backgroundColor = (data.label.includes('Sem')) ? '#6c757d' : laranjaPrimario;
+                acidentesChart.update();
+                [btnAntes, btnDepois].forEach(btn => btn.classList.remove('active'));
+                buttonToActivate.classList.add('active');
+            }
 
-        btnAntes.addEventListener('click', () => updateChart(dataAntes, btnAntes));
-        btnDepois.addEventListener('click', () => updateChart(dataDepois, btnDepois));
+            btnAntes.addEventListener('click', () => updateChart(dataAntes, btnAntes));
+            btnDepois.addEventListener('click', () => updateChart(dataDepois, btnDepois));
+        }
     }
 
     const engajamentoCanvas = document.getElementById('engajamentoChart');
@@ -101,13 +103,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (stepButtonsContainer && contentDiv) {
         const stepData = {
-            1: {icon: 'bi-search-heart', title: '1. Análise de Riscos', description: 'Tudo começa aqui. Esta é a fase de diagnóstico, onde identificamos e avaliamos todos os riscos presentes no ambiente de trabalho...'},
-            2: {icon: 'bi-check2-circle', title: '2. Seleção do EPI Adequado', description: 'Com os riscos mapeados, selecionamos o equipamento ideal...'},
-            3: {icon: 'bi-cart-check', title: '3. Compra e Aquisição', description: 'A fase de compra deve priorizar a qualidade e a conformidade...'},
-            4: {icon: 'bi-box-arrow-in-down', title: '4. Entrega e Treinamento', description: 'O EPI só é eficaz se o trabalhador souber usá-lo...'},
-            5: {icon: 'bi-person-workspace', title: '5. Uso Efetivo', description: 'Esta é a fase prática, onde o EPI cumpre sua função no dia a dia...'},
-            6: {icon: 'bi-wrench-adjustable-circle', title: '6. Manutenção e Guarda', description: 'A durabilidade e eficácia do EPI dependem de seu cuidado...'},
-            7: {icon: 'bi-trash3', title: '7. Descarte', description: 'Quando o EPI atinge o fim de sua vida útil, está danificado ou com o CA vencido, ele deve ser descartado...'}
+            1: {
+                icon: 'bi-search-heart',
+                title: '1. Análise de Riscos',
+                description: 'Tudo começa aqui. Esta é a fase de diagnóstico, onde identificamos e avaliamos todos os riscos presentes no ambiente de trabalho para cada função específica. A partir do Programa de Gerenciamento de Riscos (PGR), determinamos quais perigos (químicos, físicos, biológicos, etc.) precisam ser neutralizados pelo uso de EPIs.'
+            },
+            2: {
+                icon: 'bi-check2-circle',
+                title: '2. Seleção do EPI Adequado',
+                description: 'Com os riscos mapeados, selecionamos o equipamento ideal. Isso envolve escolher o EPI que oferece o nível de proteção necessário, possui Certificado de Aprovação (CA) válido e é o mais confortável e ergonômico possível para o trabalhador, a fim de garantir sua aceitação e uso contínuo.'
+            },
+            3: {
+                icon: 'bi-cart-check',
+                title: '3. Compra e Aquisição',
+                description: 'A fase de compra deve priorizar a qualidade e a conformidade. É essencial adquirir EPIs de fornecedores confiáveis, verificar a validade do CA no momento da compra e garantir que os produtos atendam a todas as especificações técnicas definidas na etapa de seleção. A gestão de estoque também começa aqui.'
+            },
+            4: {
+                icon: 'bi-box-arrow-in-down',
+                title: '4. Entrega e Treinamento',
+                description: 'O EPI só é eficaz se o trabalhador souber usá-lo. Nesta etapa, o equipamento é entregue formalmente ao colaborador mediante registro em ficha de EPI. O mais importante é o treinamento, que deve cobrir o uso correto, a colocação, a retirada, a higienização e as limitações do equipamento.'
+            },
+            5: {
+                icon: 'bi-person-workspace',
+                title: '5. Uso Efetivo',
+                description: 'Esta é a fase prática, onde o EPI cumpre sua função no dia a dia. A responsabilidade é mútua: o empregado deve usar o EPI conforme treinado, e o empregador deve fiscalizar e garantir que as regras de uso estão sendo seguidas por toda a equipe, de forma consistente.'
+            },
+            6: {
+                icon: 'bi-wrench-adjustable-circle',
+                title: '6. Manutenção e Guarda',
+                description: 'A durabilidade e eficácia do EPI dependem de seu cuidado. O trabalhador é responsável por guardar e conservar o equipamento, realizando a higienização conforme as instruções. A empresa deve fornecer os meios para a limpeza e realizar inspeções periódicas para identificar avarias ou desgastes.'
+            },
+            7: {
+                icon: 'bi-trash3',
+                title: '7. Descarte',
+                description: 'Quando o EPI atinge o fim de sua vida útil, está danificado ou com o CA vencido, ele deve ser descartado. O descarte correto é fundamental, especialmente para EPIs contaminados com produtos químicos ou biológicos, que podem exigir procedimentos específicos para não gerar riscos ambientais ou de saúde.'
+            }
         };
 
         function updateContent(step) {
@@ -136,97 +166,111 @@ document.addEventListener('DOMContentLoaded', function () {
         updateContent(1);
     }
 
-    // -----------------------------
-    // NOVA SEÇÃO BLOG
-    // -----------------------------
-    const mainBlogView = document.getElementById('blog-main-view');
-    const postBlogView = document.getElementById('blog-post-view');
-
-    if (mainBlogView && postBlogView) {
-        const postsData = [
-            {
-                id: 1,
-                title: "O Custo Real de um EPI Ausente: Análise de Acidentes que Poderiam Ser Evitados",
-                date: "15 de Setembro, 2025",
-                author: "SafeGuard",
-                imageUrl: "https://images.unsplash.com/photo-1551063229-d3asyc483a93?auto=format&fit=crop&w=870&q=80",
-                alt: "[Imagem de um trabalhador com a mão enfaixada, simbolizando um acidente de trabalho]",
-                summary: "Todos os anos, milhares de acidentes de trabalho são registrados no Brasil por um motivo trágico: a ausência ou o uso incorreto de EPIs...",
-                fullContent: `<p>A discussão sobre EPIs vai muito além de uma simples formalidade...</p>`
+    const efficiencyCanvas = document.getElementById('efficiencyChart');
+    if (efficiencyCanvas) {
+        const laranjaPrimario = getComputedStyle(document.documentElement).getPropertyValue('--laranja-primario').trim();
+        new Chart(efficiencyCanvas.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Custos com Desperdício', 'Tempo de Ciclo (Horas)'],
+                datasets: [
+                    {
+                        label: 'Antes da Otimização',
+                        data: [100, 48],
+                        backgroundColor: '#6c757d',
+                        borderRadius: 5,
+                    },
+                    {
+                        label: 'Depois da Otimização',
+                        data: [35, 22],
+                        backgroundColor: laranjaPrimario,
+                        borderRadius: 5,
+                    }
+                ]
             },
-            {
-                id: 2,
-                title: "Além do Obrigatório: Como Normas Voluntárias (ISO 45001) Elevam sua Empresa",
-                date: "12 de Setembro, 2025",
-                author: "SafeGuard",
-                imageUrl: "https://images.unsplash.com/photo-1560264280-980009625ce0?auto=format&fit=crop&w=870&q=80",
-                alt: "[Imagem de equipe em reunião de planejamento]",
-                summary: "Cumprir as NRs é o ponto de partida, mas as empresas líderes vão além. Adotar normas voluntárias como a ISO 45001...",
-                fullContent: `<p>No competitivo mercado atual, simplesmente cumprir a legislação de segurança...</p>`
-            },
-            {
-                id: 3,
-                title: "NR-38: O que Muda na Segurança dos Serviços de Limpeza Urbana?",
-                date: "08 de Setembro, 2025",
-                author: "SafeGuard",
-                imageUrl: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=869&q=80",
-                alt: "[Imagem de uma pessoa realizando limpeza profissional com EPI]",
-                summary: "A nova Norma Regulamentadora nº 38 chegou para transformar a segurança no setor de limpeza urbana...",
-                fullContent: `<p>Publicada para atender a uma demanda histórica por mais segurança em um dos setores...</p>`
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    if (context.dataIndex === 0) label += `R$ ${context.parsed.y.toFixed(2)}`;
+                                    else label += `${context.parsed.y}h`;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
             }
-        ];
+        });
+    }
 
-        function showMainBlog() {
-            mainBlogView.innerHTML = '';
-            postsData.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.className = 'card blog-post-card mb-4 animar-entrada';
-                postElement.innerHTML = `
-                    <img src="${post.imageUrl}" class="card-img-top" alt="${post.alt}">
-                    <div class="card-body p-4">
-                        <div class="small text-muted mb-2">
-                            <i class="bi bi-calendar3 me-1"></i> ${post.date} | <i class="bi bi-person-fill ms-2 me-1"></i> Por ${post.author}
+    const processStepsContainer = document.getElementById('process-steps-container');
+    const processContentDiv = document.getElementById('process-content');
+    if (processStepsContainer && processContentDiv) {
+        const processData = {
+            planejar: {
+                icon: 'bi-clipboard-data-fill',
+                title: '1. Planear (Plan)',
+                description: 'Esta é a fase de diagnóstico. Mapeamos o fluxo de valor atual, identificamos os 8 desperdícios, analisamos a causa raiz dos problemas e definimos metas claras e mensuráveis para a melhoria. Um plano de ação detalhado é criado com a participação da equipa.'
+            },
+            executar: {
+                icon: 'bi-gear-fill',
+                title: '2. Executar (Do)',
+                description: 'Colocamos o plano em ação. As mudanças são implementadas de forma controlada, muitas vezes em pequena escala (piloto) para testar as soluções. A equipa é treinada nas novas práticas e a comunicação é fundamental para garantir que todos estejam alinhados.'
+            },
+            verificar: {
+                icon: 'bi-check-circle-fill',
+                title: '3. Verificar (Check)',
+                description: 'Recolhemos e analisamos os dados para medir o impacto das mudanças. Comparamos os resultados obtidos com as metas definidas na fase de planeamento. Esta etapa é crucial para confirmar se as ações implementadas realmente eliminaram os desperdícios e trouxeram os benefícios esperados.'
+            },
+            agir: {
+                icon: 'bi-arrow-repeat',
+                title: '4. Agir (Act)',
+                description: 'Com base na verificação, tomamos ações corretivas. Se os resultados foram positivos, padronizamos o novo processo e expandimo-lo para outras áreas. Se não, analisamos o que correu mal e reiniciamos o ciclo PDCA com um novo plano. É a garantia da melhoria contínua.'
+            }
+        };
+
+        function updateProcessContent(step) {
+            const data = processData[step];
+            if (data) {
+                processContentDiv.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <i class="bi ${data.icon} display-4 text-laranja-primario me-4"></i>
+                        <div>
+                            <h5 class="fw-bold text-start">${data.title}</h5>
+                            <p class="text-muted text-start mb-0 small">${data.description}</p>
                         </div>
-                        <h2 class="card-title h4">${post.title}</h2>
-                        <p class="card-text">${post.summary}</p>
-                        <button class="btn btn-outline-primary" data-post-id="${post.id}">Leia Mais <i class="bi bi-arrow-right-short"></i></button>
                     </div>
                 `;
-                mainBlogView.appendChild(postElement);
-            });
-            mainBlogView.classList.remove('d-none');
-            postBlogView.classList.add('d-none');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function showPost(postId) {
-            const post = postsData.find(p => p.id === postId);
-            if (post) {
-                postBlogView.innerHTML = `
-                    <div class="animar-entrada">
-                        <button id="back-to-blog" class="btn btn-outline-primary mb-4"><i class="bi bi-arrow-left-short"></i> Voltar ao Blog</button>
-                        <h1 class="fw-bold display-6 mb-3">${post.title}</h1>
-                        <div class="small text-muted mb-3">
-                            <i class="bi bi-calendar3 me-1"></i> ${post.date} | <i class="bi bi-person-fill ms-2 me-1"></i> Por ${post.author}
-                        </div>
-                        <img src="${post.imageUrl}" class="img-fluid rounded mb-4" alt="${post.alt}">
-                        <div class="blog-content">${post.fullContent}</div>
-                    </div>
-                `;
-                mainBlogView.classList.add('d-none');
-                postBlogView.classList.remove('d-none');
-                window.scrollTo({top: 0, behavior: 'smooth'});
-                document.getElementById('back-to-blog').addEventListener('click', showMainBlog);
             }
         }
 
-        mainBlogView.addEventListener('click', function (e) {
-            if (e.target.matches('[data-post-id]')) {
-                const postId = parseInt(e.target.dataset.postId);
-                showPost(postId);
+        processStepsContainer.addEventListener('click', function (e) {
+            if (e.target.matches('.process-step')) {
+                const step = e.target.dataset.step;
+                processStepsContainer.querySelectorAll('.process-step').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                updateProcessContent(step);
             }
         });
 
-        showMainBlog();
+        updateProcessContent('planejar');
     }
 });
+
