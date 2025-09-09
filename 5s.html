@@ -1,10 +1,248 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Um guia interativo para transformar o seu ambiente de trabalho através da organização, limpeza e disciplina do programa 5S, promovendo eficiência e segurança.">
+    <title>Metodologia 5S - SafeGuard</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark animar-entrada">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">SafeGuard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="conteudo-principal">
+    <section id="hero-5s" class="hero-gradient-bg text-white text-center py-5">
+        <div class="container animar-entrada">
+            <h1 class="display-4 fw-bold">Metodologia 5S</h1>
+            <p class="lead col-lg-8 mx-auto">A base para um ambiente de trabalho mais seguro, organizado e produtivo. Transforme a sua cultura através da disciplina e da melhoria contínua.</p>
+        </div>
+    </section>
+
+    <section id="interactive-guide" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Explore os 5 Sensos</h2>
+                <p class="lead text-muted">Navegue pelas etapas que formam a base da organização e eficiência.</p>
+            </div>
+            <div class="card shadow-sm animar-entrada">
+                <div class="card-body p-4 p-md-5">
+                    <div class="btn-group flex-wrap shadow-sm mb-4 five-s-tabs" role="group" id="five-s-tabs-container">
+                        <button type="button" class="btn btn-outline-primary five-s-tab-button active" data-target="seiri">1. Seiri (Utilização)</button>
+                        <button type="button" class="btn btn-outline-primary five-s-tab-button" data-target="seiton">2. Seiton (Organização)</button>
+                        <button type="button" class="btn btn-outline-primary five-s-tab-button" data-target="seiso">3. Seiso (Limpeza)</button>
+                        <button type="button" class="btn btn-outline-primary five-s-tab-button" data-target="seiketsu">4. Seiketsu (Padronização)</button>
+                        <button type="button" class="btn btn-outline-primary five-s-tab-button" data-target="shitsuke">5. Shitsuke (Disciplina)</button>
+                    </div>
+
+                    <div id="five-s-content-container" class="bg-light p-4 rounded border" style="min-height: 250px;">
+                        <div id="seiri" class="five-s-tab-content active">
+                            <h3 class="h4 fw-bold text-laranja-primario mb-3">Senso de Utilização (Seiri)</h3>
+                            <p class="text-muted">O primeiro passo consiste em identificar e separar os itens necessários dos desnecessários no ambiente de trabalho. O objetivo é remover tudo o que não tem utilidade para as operações diárias, liberando espaço e reduzindo a desordem.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Objetivo:</strong> Manter apenas o essencial no local de trabalho.</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Ação Chave:</strong> Classificar tudo como "necessário", "desnecessário" ou "para descarte".</li>
+                                <li><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Resultado:</strong> Ambiente mais limpo, mais espaço disponível e menos distrações.</li>
+                            </ul>
+                        </div>
+                        <div id="seiton" class="five-s-tab-content">
+                            <h3 class="h4 fw-bold text-laranja-primario mb-3">Senso de Organização (Seiton)</h3>
+                            <p class="text-muted">Após remover o desnecessário, o próximo passo é organizar os itens que restaram. A máxima é "um lugar para cada coisa, e cada coisa em seu lugar". Os itens devem ser armazenados de forma lógica e acessível, facilitando a sua localização e uso.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Objetivo:</strong> Otimizar o fluxo de trabalho e reduzir o tempo de busca.</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Ação Chave:</strong> Definir locais fixos, etiquetar e identificar tudo claramente.</li>
+                                <li><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Resultado:</strong> Aumento da eficiência, redução de desperdício de tempo e menor stress.</li>
+                            </ul>
+                        </div>
+                        <div id="seiso" class="five-s-tab-content">
+                            <h3 class="h4 fw-bold text-laranja-primario mb-3">Senso de Limpeza (Seiso)</h3>
+                            <p class="text-muted">Manter o ambiente de trabalho limpo é mais do que uma questão de aparência. A limpeza regular ajuda a identificar problemas como vazamentos e desgastes de equipamentos que poderiam passar despercebidos. É também uma questão de segurança e bem-estar.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Objetivo:</strong> Criar um ambiente de trabalho seguro, agradável e que facilite a deteção de falhas.</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Ação Chave:</strong> Estabelecer rotinas de limpeza diária e inspeções.</li>
+                                <li><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Resultado:</strong> Maior segurança, melhoria da moral da equipa e aumento da vida útil dos equipamentos.</li>
+                            </ul>
+                        </div>
+                         <div id="seiketsu" class="five-s-tab-content">
+                            <h3 class="h4 fw-bold text-laranja-primario mb-3">Senso de Padronização (Seiketsu)</h3>
+                            <p class="text-muted">Este senso busca manter os três primeiros (Utilização, Organização e Limpeza) como um estado permanente. Consiste em criar regras, procedimentos e checklists para garantir que as boas práticas se tornem parte da rotina de trabalho de todos.</p>
+                             <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Objetivo:</strong> Garantir a consistência e a continuidade das melhorias alcançadas.</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Ação Chave:</strong> Criar manuais, guias visuais e procedimentos operacionais padrão (POPs).</li>
+                                <li><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Resultado:</strong> Consolidação dos hábitos, clareza nas responsabilidades e manutenção dos resultados.</li>
+                            </ul>
+                        </div>
+                        <div id="shitsuke" class="five-s-tab-content">
+                            <h3 class="h4 fw-bold text-laranja-primario mb-3">Senso de Disciplina (Shitsuke)</h3>
+                            <p class="text-muted">O último e mais desafiador dos sensos. Refere-se ao comprometimento de todos em seguir os padrões estabelecidos e praticar a metodologia 5S de forma contínua, transformando-a num hábito e parte da cultura da empresa.</p>
+                             <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Objetivo:</strong> Transformar o 5S num valor cultural e um hábito autónomo.</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Ação Chave:</strong> Realizar treinamentos, auditorias regulares e reconhecer o bom desempenho.</li>
+                                <li><i class="bi bi-check-circle-fill text-laranja-primario me-2"></i><strong>Resultado:</strong> Melhoria contínua, equipas mais engajadas e sustentabilidade do programa.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Principais Benefícios da Implementação</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 animar-entrada d-flex">
+                    <div class="card h-100 w-100 p-3 text-center">
+                        <div class="card-body">
+                           <i class="bi bi-graph-up-arrow card-icon"></i>
+                           <h5 class="card-title fw-bold">Aumento da Produtividade</h5>
+                           <p class="card-text text-muted">Com um ambiente organizado, o tempo de busca é drasticamente reduzido, otimizando o fluxo de trabalho.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animar-entrada d-flex">
+                    <div class="card h-100 w-100 p-3 text-center">
+                        <div class="card-body">
+                            <i class="bi bi-shield-check card-icon"></i>
+                           <h5 class="card-title fw-bold">Melhora da Segurança</h5>
+                           <p class="card-text text-muted">A remoção de obstáculos, a limpeza e a organização diminuem os riscos de acidentes, criando um local mais seguro.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animar-entrada d-flex">
+                    <div class="card h-100 w-100 p-3 text-center">
+                        <div class="card-body">
+                           <i class="bi bi-trash2-fill card-icon"></i>
+                           <h5 class="card-title fw-bold">Redução de Desperdícios</h5>
+                           <p class="card-text text-muted">A metodologia ajuda a identificar excessos de estoque, movimentos desnecessários e tempo ocioso.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6 animar-entrada d-flex">
+                    <div class="card h-100 w-100 p-3 text-center">
+                        <div class="card-body">
+                           <i class="bi bi-emoji-smile-fill card-icon"></i>
+                           <h5 class="card-title fw-bold">Qualidade de Vida no Trabalho</h5>
+                           <p class="card-text text-muted">Um ambiente limpo e organizado melhora a moral e o bem-estar dos colaboradores.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6 animar-entrada d-flex">
+                    <div class="card h-100 w-100 p-3 text-center">
+                        <div class="card-body">
+                           <i class="bi bi-tools card-icon"></i>
+                           <h5 class="card-title fw-bold">Manutenção de Equipamentos</h5>
+                           <p class="card-text text-muted">A limpeza constante funciona como uma inspeção, facilitando a identificação de falhas e avarias.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6 animar-entrada d-flex">
+                    <div class="card h-100 w-100 p-3 text-center">
+                        <div class="card-body">
+                           <i class="bi bi-lightbulb-fill card-icon"></i>
+                           <h5 class="card-title fw-bold">Base para Outras Melhorias</h5>
+                           <p class="card-text text-muted">O 5S cria a disciplina e a cultura necessárias para implementar com sucesso outras ferramentas Lean.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cycle" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">O Ciclo de Melhoria Contínua</h2>
+                <p class="lead text-muted">O 5S não é um projeto com início e fim, mas um ciclo que se retroalimenta.</p>
+            </div>
+            <div class="five-s-cycle-diagram animar-entrada">
+                <div class="cycle-item">Seiri</div>
+                <div class="cycle-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="cycle-item">Seiton</div>
+                <div class="cycle-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="cycle-item">Seiso</div>
+                <div class="cycle-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="cycle-item">Seiketsu</div>
+                <div class="cycle-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="cycle-item shitsuke">Shitsuke <span class="cycle-arrow-return"><i class="bi bi-arrow-counterclockwise"></i></span></div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<a href="#" id="voltarAoTopoBtn" class="btn btn-primary"><i class="bi bi-arrow-up-short"></i></a>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <h5 class="footer-title">SafeGuard</h5>
+                <p class="text-white-50">Cultura de Segurança que Protege Pessoas e Impulsiona Resultados. Ajudamos
+                    sua
+                    empresa a transformar a segurança de uma obrigação em um valor compartilhado.</p>
+                <div class="footer-social-icons mt-4">
+                    <a href="https://www.linkedin.com/company/safeguard-brasil" class="social-icon"
+                       aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.instagram.com/safeguardbrazil?igsh=ZjlyMXNhdmg5cXE=" class="social-icon"
+                       aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3 offset-md-1 mb-4">
+                <h5 class="footer-title">Navegação</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5 class="footer-title">Contato</h5>
+                <ul class="list-unstyled text-white-50 footer-contact-info">
+                    <li><i class="bi bi-envelope-fill me-2"></i>contato@safeguard.com.br</li>
+                    <li><i class="bi bi-telephone-fill me-2"></i>(51) 99121-4697</li>
+                    <li><i class="bi bi-geo-alt-fill me-2"></i>Montenegro, RS</li>
+                    <li class="mt-4"><strong>Horário de atendimento</strong></li>
+                    <li>Segunda a sexta das 8h às 18h.</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="text-center text-white-50 pt-3">
+            <p>&copy; 2025 SafeGuard Assessoria.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>

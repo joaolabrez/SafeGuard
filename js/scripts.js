@@ -273,9 +273,9 @@ document.addEventListener('DOMContentLoaded', function () {
         updateProcessContent('planejar');
     }
 
-    const laranjaPrimario = getComputedStyle(document.documentElement).getPropertyValue('--laranja-primario').trim();
-    const azulEscuroPrimario = getComputedStyle(document.documentElement).getPropertyValue('--azul-escuro-primario').trim();
-    const cinza = '#6c757d';
+    const laranjaPrimarioGlobal = getComputedStyle(document.documentElement).getPropertyValue('--laranja-primario').trim();
+    const azulEscuroPrimarioGlobal = getComputedStyle(document.documentElement).getPropertyValue('--azul-escuro-primario').trim();
+    const cinzaGlobal = '#6c757d';
 
     const chartDefaults = {
         plugins: {
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 datasets: [{
                     label: 'Taxa de Defeitos (%)',
                     data: [8.5, 6.2, 4.1, 2.5, 1.8],
-                    borderColor: laranjaPrimario,
+                    borderColor: laranjaPrimarioGlobal,
                     backgroundColor: 'rgba(255, 140, 0, 0.1)',
                     fill: true,
                     tension: 0.3
@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 datasets: [{
                     label: 'Eficiência Operacional (%)',
                     data: [65, 90],
-                    backgroundColor: [cinza, azulEscuroPrimario],
+                    backgroundColor: [cinzaGlobal, azulEscuroPrimarioGlobal],
                     borderRadius: 5
                 }]
             },
@@ -348,14 +348,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     label: 'Antes',
                     data: [6, 5, 7, 6, 5],
                     backgroundColor: 'rgba(108, 117, 125, 0.2)',
-                    borderColor: cinza,
-                    pointBackgroundColor: cinza,
+                    borderColor: cinzaGlobal,
+                    pointBackgroundColor: cinzaGlobal,
                 }, {
                     label: 'Depois',
                     data: [9, 7, 8, 9, 8],
                     backgroundColor: 'rgba(255, 140, 0, 0.2)',
-                    borderColor: laranjaPrimario,
-                    pointBackgroundColor: laranjaPrimario,
+                    borderColor: laranjaPrimarioGlobal,
+                    pointBackgroundColor: laranjaPrimarioGlobal,
                 }]
             },
             options: {
@@ -374,12 +374,327 @@ document.addEventListener('DOMContentLoaded', function () {
                 datasets: [{
                     label: 'Origem das Ideias',
                     data: [55, 20, 15, 10],
-                    backgroundColor: [azulEscuroPrimario, laranjaPrimario, cinza, '#adb5bd'],
+                    backgroundColor: [azulEscuroPrimarioGlobal, laranjaPrimarioGlobal, cinzaGlobal, '#adb5bd'],
                     hoverOffset: 4
                 }]
             },
             options: {...chartDefaults, plugins: {...chartDefaults.plugins, legend: {position: 'bottom'}}}
         });
     }
-});
 
+    const fiveSTabsContainer = document.getElementById('five-s-tabs-container');
+    if (fiveSTabsContainer) {
+        const tabButtons = fiveSTabsContainer.querySelectorAll('.five-s-tab-button');
+        const tabContents = document.querySelectorAll('.five-s-tab-content');
+
+        function switchFiveSTab(targetId) {
+            tabButtons.forEach(button => {
+                button.classList.toggle('active', button.dataset.target === targetId);
+            });
+
+            tabContents.forEach(content => {
+                content.classList.toggle('active', content.id === targetId);
+            });
+        }
+
+        fiveSTabsContainer.addEventListener('click', function (e) {
+            if (e.target.matches('.five-s-tab-button')) {
+                const targetId = e.target.dataset.target;
+                switchFiveSTab(targetId);
+            }
+        });
+
+        if (tabButtons.length > 0) {
+            switchFiveSTab(tabButtons[0].dataset.target);
+        }
+    }
+
+    const leanPrinciplesNav = document.getElementById('lean-principles-nav');
+    if (leanPrinciplesNav) {
+        const principleContent = document.getElementById('lean-principle-content');
+        const principlesData = [
+            {
+                id: 'valor',
+                title: '1. Valor',
+                icon: 'bi-gem',
+                content: 'O ponto de partida é sempre definir o que é "valor" sob a perspetiva do cliente final. Qualquer atividade que não contribui para o que o cliente está disposto a pagar é considerada desperdício.'
+            },
+            {
+                id: 'fluxo',
+                title: '2. Fluxo de Valor',
+                icon: 'bi-map-fill',
+                content: 'Mapeie todas as etapas do processo para entregar o valor ao cliente. Esta análise ajuda a visualizar onde o valor é realmente criado e onde ocorrem desperdícios, identificando oportunidades de melhoria.'
+            },
+            {
+                id: 'continuo',
+                title: '3. Fluxo Contínuo',
+                icon: 'bi-infinity',
+                content: 'Após eliminar os desperdícios, o próximo passo é garantir que as etapas restantes fluam suavemente, sem interrupções, gargalos ou atrasos, criando um processo contínuo e ágil.'
+            },
+            {
+                id: 'puxada',
+                title: '4. Produção Puxada',
+                icon: 'bi-download',
+                content: 'Em vez de "empurrar" produtos, o sistema puxado produz apenas o que é solicitado pelo cliente, no momento e na quantidade exata. Isso reduz drasticamente o excesso de estoque e a superprodução.'
+            },
+            {
+                id: 'perfeicao',
+                title: '5. Perfeição (Kaizen)',
+                icon: 'bi-bullseye',
+                content: 'A busca pela perfeição é um esforço contínuo. Envolve a cultura de melhoria contínua (Kaizen), onde todos na organização estão constantemente procurando maneiras de aprimorar os processos.'
+            }
+        ];
+
+        principlesData.forEach(p => {
+            const button = document.createElement('button');
+            button.className = 'btn btn-outline-primary lean-tab-button';
+            button.dataset.target = p.id;
+            button.innerHTML = `<i class="bi ${p.icon} me-2"></i> ${p.title}`;
+            leanPrinciplesNav.appendChild(button);
+        });
+
+        function updatePrincipleContent(targetId) {
+            const principle = principlesData.find(p => p.id === targetId);
+            if (principle) {
+                principleContent.innerHTML = `<h5 class="fw-bold">${principle.title}</h5><p class="text-muted mb-0">${principle.content}</p>`;
+            }
+        }
+
+        leanPrinciplesNav.addEventListener('click', function (e) {
+            if (e.target.matches('.lean-tab-button')) {
+                leanPrinciplesNav.querySelectorAll('.lean-tab-button').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                updatePrincipleContent(e.target.dataset.target);
+            }
+        });
+
+        if (leanPrinciplesNav.querySelector('.lean-tab-button')) {
+            leanPrinciplesNav.querySelector('.lean-tab-button').click();
+        }
+    }
+
+    const wastesGrid = document.getElementById('lean-wastes-grid');
+    if (wastesGrid) {
+        wastesGrid.addEventListener('click', function (e) {
+            const card = e.target.closest('.waste-card');
+            if (card) {
+                const wasOpen = card.classList.contains('open');
+                wastesGrid.querySelectorAll('.waste-card').forEach(c => c.classList.remove('open'));
+                if (!wasOpen) {
+                    card.classList.add('open');
+                }
+            }
+        });
+    }
+
+    const leanToolsNav = document.getElementById('lean-tools-nav');
+    if (leanToolsNav) {
+        const toolContent = document.getElementById('lean-tool-content');
+        const toolsData = [
+            {
+                id: 'kanban',
+                title: 'Kanban',
+                icon: 'bi-kanban-fill',
+                content: 'Um sistema de gestão visual que ajuda a controlar o fluxo de trabalho, utilizando cartões para representar tarefas e limitar o trabalho em progresso para evitar gargalos.'
+            },
+            {
+                id: '5s',
+                title: '5S',
+                icon: 'bi-ui-checks-grid',
+                content: 'Uma metodologia para organizar o local de trabalho (Utilização, Organização, Limpeza, Padronização e Disciplina), resultando num ambiente mais seguro, limpo e eficiente.'
+            },
+            {
+                id: 'kaizen',
+                title: 'Kaizen',
+                icon: 'bi-lightbulb-fill',
+                content: 'A filosofia da melhoria contínua. Envolve todos os funcionários na busca constante por pequenas melhorias incrementais nos processos, que levam a grandes transformações.'
+            },
+            {
+                id: 'jit',
+                title: 'Just-in-Time (JIT)',
+                icon: 'bi-clock-history',
+                content: 'Um sistema que visa fabricar e entregar produtos na quantidade exata e no momento exato em que são necessários, reduzindo drasticamente os custos de estoque e o tempo de espera.'
+            }
+        ];
+
+        toolsData.forEach(tool => {
+            const button = document.createElement('button');
+            button.className = 'btn btn-outline-primary lean-tab-button';
+            button.dataset.target = tool.id;
+            button.innerHTML = `<i class="bi ${tool.icon} me-2"></i> ${tool.title}`;
+            leanToolsNav.appendChild(button);
+        });
+
+        function updateToolContent(targetId) {
+            const tool = toolsData.find(t => t.id === targetId);
+            if (tool) {
+                toolContent.innerHTML = `<h5 class="fw-bold">${tool.title}</h5><p class="text-muted mb-0">${tool.content}</p>`;
+            }
+        }
+
+        leanToolsNav.addEventListener('click', function (e) {
+            if (e.target.matches('.lean-tab-button')) {
+                leanToolsNav.querySelectorAll('.lean-tab-button').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                updateToolContent(e.target.dataset.target);
+            }
+        });
+
+        if (leanToolsNav.querySelector('.lean-tab-button')) {
+            leanToolsNav.querySelector('.lean-tab-button').click();
+        }
+    }
+
+    const leanBenefitsCanvas = document.getElementById('leanBenefitsChart');
+    if (leanBenefitsCanvas) {
+        new Chart(leanBenefitsCanvas, {
+            type: 'bar',
+            data: {
+                labels: ['Redução de Lead Time', 'Melhora na Qualidade (Menos Defeitos)', 'Redução de Custos', 'Aumento de Produtividade'],
+                datasets: [{
+                    label: 'Abordagem Tradicional',
+                    data: [100, 100, 100, 100],
+                    backgroundColor: cinzaGlobal,
+                    borderRadius: 5,
+                }, {
+                    label: 'Abordagem Lean',
+                    data: [40, 30, 65, 140],
+                    backgroundColor: laranjaPrimarioGlobal,
+                    borderRadius: 5,
+                }]
+            },
+            options: {
+                ...chartDefaults,
+                indexAxis: 'y',
+                scales: {
+                    ...chartDefaults.scales,
+                    x: {
+                        ...chartDefaults.scales.x,
+                        ticks: {
+                            callback: function (value) {
+                                return value + '%'
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance Relativa (Tradicional = 100%)',
+                            font: {family: 'Poppins'}
+                        }
+                    }
+                },
+                plugins: {
+                    ...chartDefaults.plugins,
+                    tooltip: {
+                        ...chartDefaults.plugins.tooltip,
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    if (context.dataset.label === 'Abordagem Tradicional') {
+                                        label += 'Baseline (100%)';
+                                    } else {
+                                        const traditionalValue = 100;
+                                        const leanValue = context.parsed.x;
+                                        let change = '';
+                                        if (context.label.includes('Redução') || context.label.includes('Melhora')) {
+                                            change = `Melhora de ${traditionalValue - leanValue}%`;
+                                        } else if (context.label.includes('Aumento')) {
+                                            change = `Aumento de ${leanValue - traditionalValue}%`;
+                                        }
+                                        label += `${leanValue}% (${change})`;
+                                    }
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    const gembaChartCanvas = document.getElementById('gembaChart');
+    if (gembaChartCanvas) {
+        const gembaData = {
+            typical: {
+                labels: ['Reuniões', 'Relatórios & E-mails', 'Tempo no Gemba'],
+                values: [45, 40, 15]
+            },
+            lean: {
+                labels: ['Tempo no Gemba', 'Suporte à Equipa', 'Reuniões Estratégicas'],
+                values: [60, 25, 15]
+            }
+        };
+
+        const gembaChart = new Chart(gembaChartCanvas.getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: gembaData.typical.labels,
+                datasets: [{
+                    data: gembaData.typical.values,
+                    backgroundColor: [azulEscuroPrimarioGlobal, cinzaGlobal, laranjaPrimarioGlobal]
+                }]
+            },
+            options: {
+                ...chartDefaults,
+                plugins: {...chartDefaults.plugins, title: {display: true, text: 'Alocação de Tempo: Gestão Típica'}}
+            }
+        });
+
+        function updateGembaChart(type) {
+            const data = gembaData[type];
+            gembaChart.data.labels = data.labels;
+            gembaChart.data.datasets[0].data = data.values;
+            gembaChart.options.plugins.title.text = `Alocação de Tempo: Gestão ${type === 'lean' ? 'Lean' : 'Típica'}`;
+            gembaChart.update();
+            document.getElementById('gemba-typical-btn').classList.toggle('active', type === 'typical');
+            document.getElementById('gemba-lean-btn').classList.toggle('active', type === 'lean');
+        }
+
+        document.getElementById('gemba-typical-btn').addEventListener('click', () => updateGembaChart('typical'));
+        document.getElementById('gemba-lean-btn').addEventListener('click', () => updateGembaChart('lean'));
+    }
+
+    const nemawashiChartCanvas = document.getElementById('nemawashiChart');
+    if (nemawashiChartCanvas) {
+        const nemawashiData = {
+            without: [80, 75, 20],
+            with: [15, 25, 95]
+        };
+        const nemawashiChart = new Chart(nemawashiChartCanvas.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Resistência da Equipa', 'Tempo de Implementação', 'Taxa de Sucesso'],
+                datasets: [{
+                    label: 'Nível (%)',
+                    data: nemawashiData.without,
+                    backgroundColor: [laranjaPrimarioGlobal, cinzaGlobal, azulEscuroPrimarioGlobal]
+                }]
+            },
+            options: {
+                ...chartDefaults,
+                indexAxis: 'y',
+                scales: {x: {beginAtZero: true, max: 100, ticks: {callback: (value) => value + '%'}}},
+                plugins: {
+                    ...chartDefaults.plugins,
+                    title: {display: true, text: 'Resultados da Mudança: Sem Nemawashi'},
+                    legend: {display: false}
+                }
+            }
+        });
+
+        function updateNemawashiChart(type) {
+            nemawashiChart.data.datasets[0].data = nemawashiData[type];
+            nemawashiChart.options.plugins.title.text = `Resultados da Mudança: ${type === 'with' ? 'Com' : 'Sem'} Nemawashi`;
+            nemawashiChart.update();
+            document.getElementById('nemawashi-without-btn').classList.toggle('active', type === 'without');
+            document.getElementById('nemawashi-with-btn').classList.toggle('active', type === 'with');
+        }
+
+        document.getElementById('nemawashi-without-btn').addEventListener('click', () => updateNemawashiChart('without'));
+        document.getElementById('nemawashi-with-btn').addEventListener('click', () => updateNemawashiChart('with'));
+    }
+});

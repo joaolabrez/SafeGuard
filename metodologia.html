@@ -1,10 +1,252 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Uma análise interativa da Metodologia Lean. Aprenda sobre os 5 princípios, os 8 desperdícios e as ferramentas que maximizam o valor e eliminam o desperdício.">
+    <title>Metodologia Lean - SafeGuard</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark animar-entrada">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">SafeGuard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="conteudo-principal">
+    <section id="hero-lean" class="hero-gradient-bg text-white text-center py-5">
+        <div class="container animar-entrada">
+            <h1 class="display-4 fw-bold">Maximizando Valor, Minimizando Desperdício</h1>
+            <p class="lead col-lg-8 mx-auto">A Metodologia Lean é uma filosofia focada em entregar o máximo de valor
+                para o cliente utilizando o mínimo de recursos, otimizando o fluxo de trabalho, a qualidade e a
+                eficiência.</p>
+        </div>
+    </section>
+
+    <section id="principles" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Os 5 Princípios Fundamentais do Lean</h2>
+                <p class="lead text-muted">Estes cinco princípios formam a base do pensamento Lean e guiam a jornada de
+                    transformação de qualquer processo.</p>
+            </div>
+            <div class="card shadow-sm animar-entrada">
+                <div class="card-body p-4 p-md-5">
+                    <div class="btn-group flex-wrap shadow-sm mb-4" role="group" id="lean-principles-nav">
+                    </div>
+                    <div id="lean-principle-content" class="bg-light p-4 rounded border" style="min-height: 150px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="wastes" class="pt-5 pb-3 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Identificando os 8 Desperdícios (Muda)</h2>
+                <p class="lead text-muted">"Desperdício" (Muda) é qualquer atividade que consome recursos mas não agrega
+                    valor ao cliente. Clique em cada cartão para saber mais.</p>
+            </div>
+            <div class="row g-4" id="lean-wastes-grid">
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-truck card-icon"></i>
+                            <h5 class="card-title fw-bold">Transporte</h5>
+                            <p class="card-text text-muted description">Mover produtos ou materiais sem necessidade,
+                                aumentando o risco de danos e atrasos.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-stack card-icon"></i>
+                            <h5 class="card-title fw-bold">Estoque</h5>
+                            <p class="card-text text-muted description">Manter mais material ou produto do que o
+                                necessário, o que ocupa espaço e amarra capital.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-arrows-move card-icon"></i>
+                            <h5 class="card-title fw-bold">Movimentação</h5>
+                            <p class="card-text text-muted description">Qualquer movimento de pessoas ou equipamentos
+                                que não agrega valor, como procurar ferramentas.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-hourglass-split card-icon"></i>
+                            <h5 class="card-title fw-bold">Espera</h5>
+                            <p class="card-text text-muted description">Tempo ocioso de pessoas ou máquinas aguardando a
+                                próxima etapa do processo.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-boxes card-icon"></i>
+                            <h5 class="card-title fw-bold">Superprodução</h5>
+                            <p class="card-text text-muted description">Produzir mais, mais cedo ou mais rápido do que o
+                                cliente precisa. Gera todos os outros desperdícios.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-gear-wide-connected card-icon"></i>
+                            <h5 class="card-title fw-bold">Processamento Excessivo</h5>
+                            <p class="card-text text-muted description">Realizar mais trabalho do que o necessário, como
+                                adicionar funcionalidades não valorizadas.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-tools card-icon"></i>
+                            <h5 class="card-title fw-bold">Defeitos</h5>
+                            <p class="card-text text-muted description">Produtos ou serviços que exigem retrabalho,
+                                reparo ou descarte, gerando custos e insatisfação.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animar-entrada">
+                    <div class="card p-3 text-center waste-card">
+                        <div class="card-body">
+                            <i class="bi bi-person-slash card-icon"></i>
+                            <h5 class="card-title fw-bold">Habilidades Não Utilizadas</h5>
+                            <p class="card-text text-muted description">Não aproveitar o conhecimento, a criatividade e
+                                a experiência dos colaboradores.</p>
+                            <div class="waste-arrow mt-3"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="pt-3 pb-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Ferramentas para a Transformação Lean</h2>
+                <p class="lead text-muted">Para aplicar os princípios e eliminar os desperdícios, o Lean utiliza um
+                    conjunto de técnicas poderosas.</p>
+            </div>
+            <div class="card shadow-sm animar-entrada">
+                <div class="card-body p-4 p-md-5">
+                    <div class="btn-group flex-wrap shadow-sm mb-4" role="group" id="lean-tools-nav">
+                    </div>
+                    <div id="lean-tool-content" class="bg-light p-4 rounded border" style="min-height: 150px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">O Impacto da Adoção do Lean</h2>
+                <p class="lead text-muted">A implementação da metodologia gera melhorias significativas em
+                    indicadores-chave, resultando em ganhos expressivos.</p>
+            </div>
+            <div class="card shadow-sm animar-entrada">
+                <div class="card-body p-4">
+                    <div class="chart-container" style="height: 400px;">
+                        <canvas id="leanBenefitsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<a href="#" id="voltarAoTopoBtn" class="btn btn-primary"><i class="bi bi-arrow-up-short"></i></a>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <h5 class="footer-title">SafeGuard</h5>
+                <p class="text-white-50">Cultura de Segurança que Protege Pessoas e Impulsiona Resultados. Ajudamos
+                    sua
+                    empresa a transformar a segurança de uma obrigação em um valor compartilhado.</p>
+                <div class="footer-social-icons mt-4">
+                    <a href="https://www.linkedin.com/company/safeguard-brasil" class="social-icon"
+                       aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.instagram.com/safeguardbrazil?igsh=ZjlyMXNhdmg5cXE=" class="social-icon"
+                       aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3 offset-md-1 mb-4">
+                <h5 class="footer-title">Navegação</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5 class="footer-title">Contato</h5>
+                <ul class="list-unstyled text-white-50 footer-contact-info">
+                    <li><i class="bi bi-envelope-fill me-2"></i>contato@safeguard.com.br</li>
+                    <li><i class="bi bi-telephone-fill me-2"></i>(51) 99121-4697</li>
+                    <li><i class="bi bi-geo-alt-fill me-2"></i>Montenegro, RS</li>
+                    <li class="mt-4"><strong>Horário de atendimento</strong></li>
+                    <li>Segunda a sexta das 8h às 18h.</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="text-center text-white-50 pt-3">
+            <p>&copy; 2025 SafeGuard Assessoria.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>
+
