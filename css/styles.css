@@ -186,6 +186,18 @@ h1, h2, h3, h4, h5, h6 {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
+.footer-social-icons .social-icon {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.8rem;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-social-icons .social-icon:hover {
+    color: var(--laranja-primario);
+}
+
 .card-icon {
     font-size: 3rem;
     color: var(--laranja-primario);
@@ -219,22 +231,12 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#hero-dds .display-4 {
-    color: var(--laranja-primario) !important;
-}
-
-#hero-cuidado-ativo .display-4 {
-    color: var(--laranja-primario) !important;
-}
-
-#hero-epi .display-4 {
-    color: var(--laranja-primario) !important;
-}
-
+#hero-dds .display-4,
+#hero-cuidado-ativo .display-4,
+#hero-epi .display-4,
+#hero-eficiencia .display-4,
+#hero-blog .display-4,
 #hero .display-4 {
     color: var(--laranja-primario) !important;
 }
 
-#hero-eficiencia .display-4 {
-    color: var(--laranja-primario) !important;
-}
