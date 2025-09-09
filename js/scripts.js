@@ -272,5 +272,114 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updateProcessContent('planejar');
     }
+
+    const laranjaPrimario = getComputedStyle(document.documentElement).getPropertyValue('--laranja-primario').trim();
+    const azulEscuroPrimario = getComputedStyle(document.documentElement).getPropertyValue('--azul-escuro-primario').trim();
+    const cinza = '#6c757d';
+
+    const chartDefaults = {
+        plugins: {
+            legend: {
+                labels: {
+                    font: {family: 'Poppins'}
+                }
+            },
+            tooltip: {
+                titleFont: {family: 'Poppins', weight: 'bold'},
+                bodyFont: {family: 'Poppins'}
+            }
+        },
+        scales: {
+            x: {
+                ticks: {font: {family: 'Poppins'}},
+                grid: {display: false}
+            },
+            y: {
+                ticks: {font: {family: 'Poppins'}},
+                grid: {color: '#e9ecef'}
+            }
+        },
+        maintainAspectRatio: false
+    };
+
+    const defectRateCanvas = document.getElementById('defectRateChart');
+    if (defectRateCanvas) {
+        new Chart(defectRateCanvas, {
+            type: 'line',
+            data: {
+                labels: ['Início', 'T1', 'T2', 'T3', 'T4'],
+                datasets: [{
+                    label: 'Taxa de Defeitos (%)',
+                    data: [8.5, 6.2, 4.1, 2.5, 1.8],
+                    borderColor: laranjaPrimario,
+                    backgroundColor: 'rgba(255, 140, 0, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: chartDefaults
+        });
+    }
+
+    const efficiencyImprovementCanvas = document.getElementById('efficiencyImprovementChart');
+    if (efficiencyImprovementCanvas) {
+        new Chart(efficiencyImprovementCanvas, {
+            type: 'bar',
+            data: {
+                labels: ['Antes', 'Depois'],
+                datasets: [{
+                    label: 'Eficiência Operacional (%)',
+                    data: [65, 90],
+                    backgroundColor: [cinza, azulEscuroPrimario],
+                    borderRadius: 5
+                }]
+            },
+            options: {...chartDefaults, scales: {...chartDefaults.scales, y: {beginAtZero: true, max: 100}}}
+        });
+    }
+
+    const competenciesCanvas = document.getElementById('competenciesChart');
+    if (competenciesCanvas) {
+        new Chart(competenciesCanvas, {
+            type: 'radar',
+            data: {
+                labels: ['Qualidade', 'Custo', 'Entrega', 'Segurança', 'Moral'],
+                datasets: [{
+                    label: 'Antes',
+                    data: [6, 5, 7, 6, 5],
+                    backgroundColor: 'rgba(108, 117, 125, 0.2)',
+                    borderColor: cinza,
+                    pointBackgroundColor: cinza,
+                }, {
+                    label: 'Depois',
+                    data: [9, 7, 8, 9, 8],
+                    backgroundColor: 'rgba(255, 140, 0, 0.2)',
+                    borderColor: laranjaPrimario,
+                    pointBackgroundColor: laranjaPrimario,
+                }]
+            },
+            options: {
+                ...chartDefaults,
+                scales: {r: {beginAtZero: true, max: 10, pointLabels: {font: {size: 12, family: 'Poppins'}}}}
+            }
+        });
+    }
+
+    const ideasOriginCanvas = document.getElementById('ideasOriginChart');
+    if (ideasOriginCanvas) {
+        new Chart(ideasOriginCanvas, {
+            type: 'doughnut',
+            data: {
+                labels: ['Produção', 'Engenharia', 'Logística', 'Gestão'],
+                datasets: [{
+                    label: 'Origem das Ideias',
+                    data: [55, 20, 15, 10],
+                    backgroundColor: [azulEscuroPrimario, laranjaPrimario, cinza, '#adb5bd'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {...chartDefaults, plugins: {...chartDefaults.plugins, legend: {position: 'bottom'}}}
+        });
+    }
 });
 

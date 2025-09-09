@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Veja um estudo de caso sobre o impacto real da Melhoria Contínua e como a metodologia Kaizen e o ciclo PDCA transformam processos e resultados.">
+    <title>Melhoria Contínua (Kaizen) - SafeGuard</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark animar-entrada">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">SafeGuard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="conteudo-principal">
+    <section id="hero-melhoria" class="hero-gradient-bg text-white text-center py-5">
+        <div class="container animar-entrada">
+            <h1 class="display-4 fw-bold">O Impacto da Melhoria Contínua</h1>
+            <p class="lead col-lg-8 mx-auto">Um Estudo de Caso Sobre a Transformação de Processos e Resultados.</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">O Desafio Inicial: Métricas Pré-Implementação</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 animar-entrada">
+                    <div class="kpi-card">
+                        <p class="kpi-value" style="color: var(--laranja-primario);">8.5%</p>
+                        <p class="kpi-label">Taxa de Defeitos</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animar-entrada">
+                    <div class="kpi-card">
+                        <p class="kpi-value" style="color: var(--azul-escuro-primario);">65%</p>
+                        <p class="kpi-label">Eficiência Operacional</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animar-entrada">
+                    <div class="kpi-card">
+                        <p class="kpi-value" style="color: var(--laranja-primario);">72h</p>
+                        <p class="kpi-label">Tempo Médio de Ciclo</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animar-entrada">
+                    <div class="kpi-card">
+                        <p class="kpi-value" style="color: var(--azul-escuro-primario);">15/mês</p>
+                        <p class="kpi-label">Sugestões de Melhoria</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 animar-entrada">
+                    <h2 class="fw-bold text-center mb-4">Nossa Jornada de Implementação</h2>
+                    <ul class="list-group list-group-flush timeline">
+                        <li class="list-group-item timeline-item">
+                            <span class="timeline-marker">1</span>
+                            <h5 class="fw-bold">Diagnóstico e Treinamento</h5>
+                            <p class="text-muted">Mapeamento de fluxos de valor e capacitação das equipas em ferramentas da qualidade.</p>
+                        </li>
+                        <li class="list-group-item timeline-item">
+                            <span class="timeline-marker">2</span>
+                            <h5 class="fw-bold">Projetos Piloto (PDCA)</h5>
+                            <p class="text-muted">Aplicação do ciclo PDCA em áreas críticas para testar e validar hipóteses de melhoria.</p>
+                        </li>
+                        <li class="list-group-item timeline-item">
+                            <span class="timeline-marker">3</span>
+                            <h5 class="fw-bold">Expansão e Cultura Kaizen</h5>
+                            <p class="text-muted">Disseminação dos aprendizados e fomento de uma cultura de pequenas melhorias diárias.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 animar-entrada">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-center mb-3">Redução de Defeitos por Trimestre</h5>
+                            <div class="chart-container">
+                                <canvas id="defectRateChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 animar-entrada">
+                <h2 class="fw-bold">Resultados Pós-Implementação (12 meses)</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 animar-entrada">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-center mb-3">Eficiência Operacional</h5>
+                            <div class="chart-container">
+                                <canvas id="efficiencyImprovementChart"></canvas>
+                            </div>
+                            <p class="text-center text-muted small mt-3">Aumento de 25% na eficiência, otimizando o uso de recursos e reduzindo ociosidade.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 animar-entrada">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-center mb-3">Evolução das Competências</h5>
+                            <div class="chart-container">
+                                <canvas id="competenciesChart"></canvas>
+                            </div>
+                            <p class="text-center text-muted small mt-3">Melhoras significativas em todas as áreas-chave, com destaque para Qualidade e Segurança.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 animar-entrada">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-center mb-3">Origem das Melhorias</h5>
+                            <div class="chart-container">
+                                <canvas id="ideasOriginChart"></canvas>
+                            </div>
+                            <p class="text-center text-muted small mt-3">O engajamento da linha de produção foi crucial, contribuindo com a maior parte das soluções.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-center bg-light">
+        <div class="container animar-entrada">
+             <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold">A Melhoria Contínua não é um destino, mas uma jornada constante de aprimoramento.</h2>
+                    <a href="contato.html" class="btn btn-primary btn-lg mt-4">Comece a sua Jornada de Melhoria</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<a href="#" id="voltarAoTopoBtn" class="btn btn-primary"><i class="bi bi-arrow-up-short"></i></a>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <h5 class="footer-title">SafeGuard</h5>
+                <p class="text-white-50">Cultura de Segurança que Protege Pessoas e Impulsiona Resultados. Ajudamos
+                    sua
+                    empresa a transformar a segurança de uma obrigação em um valor compartilhado.</p>
+                <div class="footer-social-icons mt-4">
+                    <a href="https://www.linkedin.com/company/safeguard-brasil" class="social-icon"
+                       aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.instagram.com/safeguardbrazil?igsh=ZjlyMXNhdmg5cXE=" class="social-icon"
+                       aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3 offset-md-1 mb-4">
+                <h5 class="footer-title">Navegação</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5 class="footer-title">Contato</h5>
+                <ul class="list-unstyled text-white-50 footer-contact-info">
+                    <li><i class="bi bi-envelope-fill me-2"></i>contato@safeguard.com.br</li>
+                    <li><i class="bi bi-telephone-fill me-2"></i>(51) 99121-4697</li>
+                    <li><i class="bi bi-geo-alt-fill me-2"></i>Montenegro, RS</li>
+                    <li class="mt-4"><strong>Horário de atendimento</strong></li>
+                    <li>Segunda a sexta das 8h às 18h.</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="text-center text-white-50 pt-3">
+            <p>&copy; 2025 SafeGuard Assessoria.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
