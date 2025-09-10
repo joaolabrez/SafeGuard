@@ -135,17 +135,18 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none;
+
+    display: flex;
     align-items: center;
     justify-content: center;
+
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
-    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 }
 
 #voltarAoTopoBtn.visivel {
-    display: flex;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -241,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero-lean .display-4,
 #hero-pilares .display-4,
 #hero .display-4 {
-    color: var(--laranja-primario) !important;
+    color: var(--cinza-claro-fundo) !important;
 }
 
 .kpi-card {
