@@ -5,6 +5,8 @@
     --cinza-claro-fundo: #f8f9fa;
     --cor-texto-claro: #f1f1f1;
     --fonte-principal: 'Poppins', sans-serif;
+    /* Se você tiver um verde que quer usar para destaque, defina ele aqui: */
+    /* --verde-destaque: #28a745; */
 }
 
 body {
@@ -241,6 +243,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero-5s .display-4,
 #hero-lean .display-4,
 #hero-pilares .display-4,
+#hero-tps .display-4,
 #hero .display-4 {
     color: var(--cinza-claro-fundo) !important;
 }
@@ -434,3 +437,61 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.tps-pillar-card {
+    border: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tps-pillar-card .card-icon {
+    font-size: 3.5rem;
+}
+
+.principle-card {
+    border: 1px solid #e9ecef;
+    border-top: 4px solid var(--laranja-primario);
+    transition: all 0.3s ease;
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.principle-card .card-title {
+    color: var(--azul-escuro-primario);
+}
+
+.benefits-section-tps {
+    background-color: var(--azul-escuro-primario);
+    color: var(--cor-texto-claro);
+}
+
+.benefit-card-tps {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.benefit-card-tps:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.benefit-card-tps p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.benefits-section-tps .lead {
+    color: var(--laranja-primario);
+    font-weight: 600;
+    font-size: 1.25rem;
+    opacity: 1;
+}
+
+.benefit-card-tps h4 {
+    color: var(--laranja-primario);
+}
