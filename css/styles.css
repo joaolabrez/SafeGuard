@@ -437,6 +437,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* ESTILOS ANTIGOS (Mantidos conforme solicitado) */
 .tps-pillar-card {
     border: 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -494,4 +495,83 @@ h1, h2, h3, h4, h5, h6 {
 
 .benefit-card-tps h4 {
     color: var(--laranja-primario);
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.client-logos img {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    filter: grayscale(100%);
+}
+
+.client-logos img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.hero-section-home h1 {
+    color: var(--cor-texto-claro) !important;
+}
+
+.bg-azul-escuro-primario {
+    background-color: var(--azul-escuro-primario);
+}
+
+.hero-section-home {
+    background: linear-gradient(to right, rgba(44, 62, 80, 0.9), rgba(78, 106, 133, 0.85)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+    padding: 80px 0;
+}
+
+.hero-kpi-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: var(--cor-texto-claro);
+    height: 100%;
+}
+
+.metodologia-card {
+    background-color: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    width: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.metodologia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.metodologia-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--laranja-primario);
+    color: white;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--cinza-claro-fundo);
+}
+
+.testimonial-card {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
 }
