@@ -518,9 +518,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--cor-texto-claro) !important;
 }
 
+
 .bg-azul-escuro-primario {
     background-color: var(--azul-escuro-primario);
 }
+
 
 .hero-section-home {
     background: linear-gradient(to right, rgba(44, 62, 80, 0.9), rgba(78, 106, 133, 0.85)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop') no-repeat center center;
@@ -538,6 +540,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--cor-texto-claro);
     height: 100%;
 }
+
+.hero-kpi-card .display-6 {
+    color: var(--cor-texto-claro) !important;
+}
+
 
 .metodologia-card {
     background-color: #fff;
@@ -574,4 +581,19 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-card {
     background-color: #ffffff;
     border: 1px solid #e9ecef;
+}
+
+.btn-outline-primary {
+    color: var(--laranja-primario);
+    border-color: var(--laranja-primario);
+    transition: all 0.3s ease;
+    background-color: var(--laranja-primario);
+    color: white;
+}
+
+.btn-outline-primary:hover {
+    background-color: #e07b00;
+    border-color: #e07b00;
+    color: white;
+    transform: translateY(-2px);
 }
